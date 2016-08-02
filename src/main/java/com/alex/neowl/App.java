@@ -38,15 +38,12 @@ public class App {
         }
         System.out.println("Ontology is consistent");
         Transaction tx = db.beginTx();
-            Node thingNode = getOrCreateNodeWithUniqueFactory("owl:Thing");
+            Node thingNode = getOrCreateNodeWithUniqueFactory("owl:Thing", 0);
 
         // For each class of the ontology, we create a node and a relation isA to its superclass
             for (OWLClass c :ontology.getClassesInSignature(true)) {
-                String classString = c.toString();
-                if (classString.contains("#")) {
-                    classString = classString.substring(classString.indexOf("#")+1,classString.lastIndexOf(">"));
-                }
-                Node classNode = getOrCreateNodeWithUniqueFactory(classString);
+
+                Node classNode = getOrCreateNodeWithUniqueFactory(c.toString(), 0);
                 for(OWLAnnotationAssertionAxiom annotations :c.getAnnotationAssertionAxioms(ontology)) {
                     String valueStr = annotations.getValue().toString();
                     if(valueStr.contains("@")){
@@ -67,11 +64,7 @@ public class App {
                     for (org.semanticweb.owlapi.reasoner.Node<OWLClass>parentOWLNode: superclasses) {
 
                         OWLClassExpression parent = parentOWLNode.getRepresentativeElement();
-                        String parentString = parent.toString();
-                        if (parentString.contains("#")) {
-                            parentString = parentString.substring(parentString.indexOf("#")+1,parentString.lastIndexOf(">"));
-                        }
-                        Node parentNode = getOrCreateNodeWithUniqueFactory(parentString);
+                        Node parentNode = getOrCreateNodeWithUniqueFactory(parent.toString(), 0);
                         classNode.createRelationshipTo(parentNode,DynamicRelationshipType.withName("isA"));
                     }
                 }
@@ -80,11 +73,7 @@ public class App {
                 // For each individual, we create a node and link it to its parent
                 for (org.semanticweb.owlapi.reasoner.Node<OWLNamedIndividual> in : reasoner.getInstances(c, true)) {
                     OWLNamedIndividual i = in.getRepresentativeElement();
-                    String indString = i.toString();
-                    if (indString.contains("#")) {
-                        indString = indString.substring(indString.indexOf("#")+1,indString.lastIndexOf(">"));
-                    }
-                    Node individualNode = getOrCreateNodeWithUniqueFactory(indString);
+                    Node individualNode = getOrCreateNodeWithUniqueFactory(i.toString(), 1);
 
                     individualNode.createRelationshipTo(classNode,DynamicRelationshipType.withName("isA"));
 
@@ -97,9 +86,7 @@ public class App {
                             String reltype = objectProperty.toString();
                             reltype = reltype.substring(reltype.indexOf("#")+1, reltype.lastIndexOf(">"));
 
-                            String s = object.getRepresentativeElement().toString();
-                            s = s.substring(s.indexOf("#")+1,s.lastIndexOf(">"));
-                            Node objectNode = getOrCreateNodeWithUniqueFactory(s);
+                            Node objectNode = getOrCreateNodeWithUniqueFactory(object.getRepresentativeElement().toString(), 0);
                             individualNode.createRelationshipTo(objectNode, DynamicRelationshipType.withName(reltype));
                         }
                     }
@@ -128,7 +115,7 @@ public class App {
                     if (domainString.contains("#")) {
                         domainString = domainString.substring(domainString.indexOf("#")+1,domainString.lastIndexOf(">"));
                     }
-                    Node domainNode = getOrCreateNodeWithUniqueFactory(domainString);
+                    Node domainNode = getOrCreateNodeWithUniqueFactory(domainString, 0);
 
                     String reltype = objectProperty.toString();
                     reltype = reltype.substring(reltype.indexOf("#")+1, reltype.lastIndexOf(">"));
@@ -140,7 +127,7 @@ public class App {
                         if (rangeString.contains("#")) {
                             rangeString = rangeString.substring(rangeString.indexOf("#")+1,rangeString.lastIndexOf(">"));
                         }
-                        Node rangeNode = getOrCreateNodeWithUniqueFactory(rangeString);
+                        Node rangeNode = getOrCreateNodeWithUniqueFactory(rangeString, 0);
                         domainNode.createRelationshipTo(rangeNode, DynamicRelationshipType.withName(reltype));
 
                     }
@@ -150,14 +137,24 @@ public class App {
     }
 
 
-    private Node getOrCreateNodeWithUniqueFactory(String s) {
+    private Node getOrCreateNodeWithUniqueFactory(String uri, int type) {
         Node dataNode = null;
+        String s = uri;
+        if (uri.contains("#")) {
+            s = uri.substring(uri.indexOf("#")+1,uri.lastIndexOf(">"));
+        }
         Label label = DynamicLabel.label("Ontology");
             Index<Node> nodeIndex = getGraphDb().index().forNodes("OntClasses");
             dataNode = nodeIndex.get("name",s).getSingle();
             if(dataNode == null) {
                 dataNode = db.createNode(label);
                 dataNode.setProperty("name", s);
+                dataNode.setProperty("uri", uri);
+                switch(type) {
+                    case 0:dataNode.setProperty("type", "class");break;
+                    case 1:dataNode.setProperty("type", "individual");break;
+                }
+
                 nodeIndex.add(dataNode, "name", s);
             }
         return dataNode;

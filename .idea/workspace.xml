@@ -64,10 +64,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="App.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="App.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/alex/neowl/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="109" selection-start="4843" selection-end="4843" vertical-scroll-proportion="0.0" vertical-offset="2252" max-vertical-offset="2850">
+            <state line="40" column="76" selection-start="1305" selection-end="1305" vertical-scroll-proportion="-3.113806" vertical-offset="2269" max-vertical-offset="2805">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,16 +78,16 @@
       <file leaf-file-name="neowl.iml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/neowl.iml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="0" selection-start="8666" selection-end="8666" vertical-scroll-proportion="0.0" vertical-offset="1058" max-vertical-offset="1605">
+            <state line="91" column="0" selection-start="8862" selection-end="8862" vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="1635">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="21" selection-start="901" selection-end="901" vertical-scroll-proportion="0.6759099" vertical-offset="0" max-vertical-offset="1395">
+            <state line="27" column="22" selection-start="489" selection-end="921" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1395">
               <folding />
             </state>
           </provider>
@@ -112,8 +112,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/alex/neowl/App.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/alex/neowl/App.java" />
       </list>
     </option>
   </component>
@@ -229,7 +229,7 @@
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="Configurable.PHP" />
+    <property name="options.lastSelected" value="reference.settings.project.maven.repository.indices" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
@@ -325,12 +325,12 @@
       <created>1469739708689</created>
       <updated>1469739708689</updated>
       <workItem from="1469739710311" duration="8601000" />
-      <workItem from="1470070295959" duration="156000" />
+      <workItem from="1470070295959" duration="1469000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8757000" />
+    <option name="totallyTimeSpent" value="10070000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="695" extended-state="6" />
@@ -410,7 +410,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/neowl.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="0" selection-start="8666" selection-end="8666" vertical-scroll-proportion="0.0" vertical-offset="1058" max-vertical-offset="1605">
+        <state line="91" column="0" selection-start="8862" selection-end="8862" vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="1635">
           <folding />
         </state>
       </provider>
@@ -422,19 +422,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alex/neowl/App.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="109" selection-start="4843" selection-end="4843" vertical-scroll-proportion="0.0" vertical-offset="2252" max-vertical-offset="2850">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="27" column="22" selection-start="489" selection-end="921" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1395">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alex/neowl/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="21" selection-start="901" selection-end="901" vertical-scroll-proportion="0.6759099" vertical-offset="0" max-vertical-offset="1395">
-          <folding />
+        <state line="40" column="76" selection-start="1305" selection-end="1305" vertical-scroll-proportion="-3.113806" vertical-offset="2269" max-vertical-offset="2805">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
