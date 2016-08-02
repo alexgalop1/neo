@@ -150,9 +150,11 @@ public class App {
                 dataNode = db.createNode(label);
                 dataNode.setProperty("name", s);
                 dataNode.setProperty("uri", uri);
+
                 switch(type) {
-                    case 0:dataNode.setProperty("type", "class");break;
-                    case 1:dataNode.setProperty("type", "individual");break;
+
+                    case 0:dataNode.addLabel(DynamicLabel.label("Class"));break;
+                    case 1:dataNode.addLabel(DynamicLabel.label("Individual"));break;
                 }
 
                 nodeIndex.add(dataNode, "name", s);
