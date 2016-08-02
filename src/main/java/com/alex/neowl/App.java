@@ -111,11 +111,7 @@ public class App {
                 for  (org.semanticweb.owlapi.reasoner.Node<OWLClass> domain: reasoner.getObjectPropertyDomains(objectProperty, true)) {
 
                     OWLClassExpression domainOwl = domain.getRepresentativeElement();
-                    String domainString = domainOwl.toString();
-                    if (domainString.contains("#")) {
-                        domainString = domainString.substring(domainString.indexOf("#")+1,domainString.lastIndexOf(">"));
-                    }
-                    Node domainNode = getOrCreateNodeWithUniqueFactory(domainString, 0);
+                    Node domainNode = getOrCreateNodeWithUniqueFactory(domainOwl.toString(), 0);
 
                     String reltype = objectProperty.toString();
                     reltype = reltype.substring(reltype.indexOf("#")+1, reltype.lastIndexOf(">"));
@@ -123,11 +119,7 @@ public class App {
                     for  (org.semanticweb.owlapi.reasoner.Node<OWLClass> range: reasoner.getObjectPropertyRanges(objectProperty, true)) {
 
                         OWLClassExpression rangeOwl = range.getRepresentativeElement();
-                        String rangeString = rangeOwl.toString();
-                        if (rangeString.contains("#")) {
-                            rangeString = rangeString.substring(rangeString.indexOf("#")+1,rangeString.lastIndexOf(">"));
-                        }
-                        Node rangeNode = getOrCreateNodeWithUniqueFactory(rangeString, 0);
+                        Node rangeNode = getOrCreateNodeWithUniqueFactory(rangeOwl.toString(), 0);
                         domainNode.createRelationshipTo(rangeNode, DynamicRelationshipType.withName(reltype));
 
                     }

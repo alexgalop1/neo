@@ -67,7 +67,7 @@
       <file leaf-file-name="App.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/alex/neowl/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="142" column="8" selection-start="6837" selection-end="6837" vertical-scroll-proportion="0.24813433" vertical-offset="1997" max-vertical-offset="2835">
+            <state line="121" column="9" selection-start="5894" selection-end="5894" vertical-scroll-proportion="2.4309702" vertical-offset="512" max-vertical-offset="2715">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -325,12 +325,12 @@
       <created>1469739708689</created>
       <updated>1469739708689</updated>
       <workItem from="1469739710311" duration="8601000" />
-      <workItem from="1470070295959" duration="1900000" />
+      <workItem from="1470070295959" duration="2257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10501000" />
+    <option name="totallyTimeSpent" value="10858000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="695" extended-state="6" />
@@ -431,7 +431,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/alex/neowl/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="8" selection-start="6837" selection-end="6837" vertical-scroll-proportion="0.24813433" vertical-offset="1997" max-vertical-offset="2835">
+        <state line="121" column="9" selection-start="5894" selection-end="5894" vertical-scroll-proportion="2.4309702" vertical-offset="512" max-vertical-offset="2715">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
